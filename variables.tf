@@ -1,8 +1,8 @@
 variable "namespace" {
 }
 
-variable "node_groups" {
-  description = "Number of nodes groups to create in the"
+variable "num_cache_clusters" {
+  description = "Number of cache cluster to create (will be support at version 1 or above)"
   default     = 1
 }
 

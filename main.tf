@@ -16,11 +16,7 @@ resource "aws_elasticache_replication_group" "default" {
 
   subnet_group_name          = aws_elasticache_subnet_group.default.name
   automatic_failover_enabled = var.automatic_failover_enabled
-
-  cluster_mode {
-    replicas_per_node_group = var.replicas_per_node_group
-    num_node_groups         = var.node_groups
-  }
-
+  replicas_per_node_group    = var.replicas_per_node_group
+  num_cache_clusters         = var.num_cache_clusters
   tags = var.tags
 }
