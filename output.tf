@@ -4,6 +4,7 @@ output "primary_endpoint_address" {
 
 output "arn" {
   value = aws_elasticache_subnet_group.default.arn
+  description = "Elasticache Replication Group ARN"
 }
 
 output "configuration_endpoint_address" {
