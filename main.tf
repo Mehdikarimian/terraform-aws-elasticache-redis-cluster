@@ -1,6 +1,6 @@
 locals {
   subnet_group_name    = var.subnet_name == "" ? var.namespace : "${var.namespace}-${var.subnet_name}"
-  parameter_group_name = var.cluster_mode ? "default.${var.family}.cluster.on" : "${var.namespace}.${var.family}"
+  parameter_group_name = var.cluster_mode ? "default.${var.family}.cluster.on" : "default.${var.family}"
 }
 
 resource "aws_elasticache_subnet_group" "default" {
