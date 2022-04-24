@@ -1,6 +1,10 @@
 # this security group for ecs - Traffic to the ECS cluster should only come from the ALB
+locals {
+  security_group_name = var.security_group_name == "" ? "${var.namespace}" : "${var.namespace}_${var.security_group_name}"
+}
+
 resource "aws_security_group" "redis-security-group" {
-  name   = var.security_group_name
+  name   = local.security_group_name
   vpc_id = var.vpc_id
 
   ingress {

@@ -19,15 +19,22 @@ module "vpc" {
 }
 
 module "redis" {
-  source                  = "Mehdikarimian/elasticache-redis-cluster/aws"
-  version                 = "0.1.0"
-  namespace               = "simple-redis-cluster"
-  vpc_id                  = module.vpc.vpc_id
-  subnet_ids              = module.vpc.private_subnets
-  node_type               = "cache.t3.small"
-  parameter_group_name    = "default.redis6.x"
+  namespace            = "test"
+  source               = "Mehdikarimian/elasticache-redis-cluster/aws"
+    version                 = "0.2.0"
+  vpc_id               = module.vpc.vpc.id
+  subnet_ids           = module.vpc.private_subnets.*.id
+  node_type            = "cache.t3.small"
+  cluster_description  = "test cluster"
+  subnet_name          = "subnet"
+  parameter_group_name = "TestParameterGroup"
+  apply_immediately    = true
+
+  cluster_mode               = true
+  number_shard               = 2
   replicas_per_node_group = 1
-  security_group_name     = "simple-redis-cluster-security-group"
+
+  security_group_name = "redis-production-security-group"
   tags = {
     Name       = "simple-redis-cluster"
     Enviroment = "Production",

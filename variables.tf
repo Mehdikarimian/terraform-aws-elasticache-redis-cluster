@@ -1,45 +1,55 @@
 variable "namespace" {
 }
 
-variable "num_cache_clusters" {
-  description = "Number of cache cluster to create (will be support at version 1 or above)"
-  default     = 1
-}
-
 variable "cluster_id" {
   description = "cluster name"
-  default = "redis-cluster"
+  default     = "redis-cluster"
 }
 
 variable "cluster_description" {
   description = "cluster description"
-  default = ""
+  default     = ""
 }
 
 variable "port" {
   description = "running port"
-  default = 6379
-}
-
-variable "automatic_failover_enabled" {
-  description = ""
-  default = true
+  default     = 6379
 }
 
 variable "security_group_name" {
+  default     = ""
   description = "redis security group name"
 }
 
-variable "replicas_per_node_group" {
-  description = "number of replicas run per node group"
+variable "subnet_name" {
+  default = ""
 }
 
-variable "parameter_group_name" {
-  description = "parameter group name"
+variable "family" {
+  default = "redis6.x"
 }
 
 variable "node_type" {
   description = "node type"
+}
+
+variable "cluster_mode" {
+  default = false
+}
+
+variable "automatic_failover_enabled" {
+  description = ""
+  default     = false
+}
+
+variable "number_replica" {
+  description = ""
+  default     = 2
+}
+
+variable "number_shard" {
+  default     = 2
+  description = ""
 }
 
 variable "subnet_ids" {
@@ -52,5 +62,19 @@ variable "vpc_id" {
 
 variable "tags" {
   description = "tags"
-  type =  map(string)
+  type        = map(string)
+}
+
+
+variable "apply_immediately" {
+  default = false
+}
+
+variable "parameter_group_name" {
+  default =  ""
+}
+
+
+variable "parameter" {
+  default = []
 }
