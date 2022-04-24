@@ -32,7 +32,7 @@ resource "aws_elasticache_parameter_group" "redis" {
 }
 
 resource "aws_elasticache_replication_group" "default" {
-  replication_group_id = var.cluster_id
+  replication_group_id = "${var.cluster_id}-${var.cluster_name}"
   description          = var.cluster_description
   security_group_ids   = [aws_security_group.redis-security-group.id]
   node_type            = var.node_type

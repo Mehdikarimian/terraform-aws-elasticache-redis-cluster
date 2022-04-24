@@ -1,9 +1,8 @@
 variable "namespace" {
 }
 
-variable "cluster_id" {
+variable "cluster_name" {
   description = "cluster name"
-  default     = "redis-cluster"
 }
 
 variable "cluster_description" {
@@ -48,7 +47,7 @@ variable "number_replica" {
 }
 
 variable "number_shard" {
-  default     = 2
+  default     = 1
   description = ""
 }
 
@@ -63,6 +62,8 @@ variable "vpc_id" {
 variable "tags" {
   description = "tags"
   type        = map(string)
+  default = {
+  }
 }
 
 
