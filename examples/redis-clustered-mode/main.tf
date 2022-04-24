@@ -19,8 +19,8 @@ module "vpc" {
 }
 
 module "redis" {
-  namespace            = "redis-cluster-mode-"
-  cluster_name         = "example"
+  namespace            = "redis-cluster-mode"
+  cluster_name         = "redis-cluster-mode-example"
   source               = "Mehdikarimian/elasticache-redis-cluster/aws"
   version              = "1.0.3"
   vpc_id               = module.vpc.vpc_id
