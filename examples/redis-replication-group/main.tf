@@ -19,15 +19,16 @@ module "vpc" {
 }
 
 module "redis" {
-  namespace            = "redis-replication-example"
-  source               = "Mehdikarimian/elasticache-redis-cluster/aws"
-  version              = "1.0.0"
-  vpc_id               = module.vpc.vpc_id
-  subnet_ids           = module.vpc.private_subnets
-  node_type            = "cache.t3.small"
-  cluster_description  = "redis replication group example description"
-  subnet_name          = "redis-replication-group-example-subnet"
-  apply_immediately    = true
+  namespace           = "redis-replication-"
+  cluster_name        = "example"
+  source              = "Mehdikarimian/elasticache-redis-cluster/aws"
+  version             = "1.0.3"
+  vpc_id              = module.vpc.vpc_id
+  subnet_ids          = module.vpc.private_subnets
+  node_type           = "cache.t3.small"
+  cluster_description = "redis replication group example description"
+  subnet_name         = "redis-replication-group-example-subnet"
+  apply_immediately   = true
 
   number_replica = 3
 
