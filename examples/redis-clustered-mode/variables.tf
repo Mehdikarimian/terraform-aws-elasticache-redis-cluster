@@ -1,5 +1,4 @@
 variable "profile" {
-  default     = "sibuy2"
   description = ""
 }
 
