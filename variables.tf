@@ -25,7 +25,7 @@ variable "subnet_name" {
 }
 
 variable "family" {
-  default = "redis6.x"
+  default = "redis7.x"
 }
 
 variable "node_type" {
